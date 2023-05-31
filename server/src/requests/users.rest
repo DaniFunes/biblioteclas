@@ -1,0 +1,26 @@
+@hostname = http://localhost
+@port = 3001
+@host = {{hostname}}:{{port}}
+
+
+// REGISTRA UN NUEVO USUARIO
+POST {{host}}/api/biblioteclas/users/signup
+Content-Type: application/json
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MzQ3MjE1OH0.EeeB99hmhP7dfWd9YrJZLat1pK1JTZ_oqgS8dXT97Eo
+
+{
+    "username": "daniFunes3", 
+    "password": "123456",
+    "isAdmin": false
+}
+
+### LOGUEA UN USUARIO
+
+POST {{host}}/api/biblioteclas/users/signin
+Content-Type: application/json
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+
+{
+    "username": "daniFunes3", 
+    "password": "123456"
+}

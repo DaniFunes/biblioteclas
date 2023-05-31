@@ -1,0 +1,18 @@
+@hostname = http://localhost
+@port = 3001
+@host = {{hostname}}:{{port}}
+
+###
+
+// CONSIGUE LAS RESERVAS DE UN USUARIO
+GET {{host}}/api/biblioteclas/64760a8f9ba24a49ee0edb10
+
+###
+
+// CANCELA UNA RESERVA DE UN USUARIO
+DELETE {{host}}/api/biblioteclas/idUsuario/idReserva
+
+
+
+
+

@@ -1,0 +1,64 @@
+@hostname = http://localhost
+@port = 3001
+@host = {{hostname}}:{{port}}
+
+###
+
+//CONSIGUE TODAS LAS BIBLIOTECAS
+GET {{host}}/api/biblioteclas/bibliotecas
+
+###
+
+
+//CONSIGUE BIBLIOTECAS POR CIUDAD
+GET {{host}}/api/biblioteclas/bibliotecas/search
+
+###
+
+
+//AÑADE UNA BIBLIOTECA 
+POST {{host}}/api/biblioteclas/bibliotecas
+Content-Type: application/json
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MzQ3MjE3Nn0.Hj2gsIrhczza9SwPSnN9SmtqbWA6u1wynV1RzqibAyo
+
+{
+    "ciudad": "Sevilla",
+    "nombre": "Biblioteca Raúl Cimas",
+    "servicios": ["Cafetería", "WiFi", "Aparcamiento"]
+}
+
+###
+
+// AÑADE UNA SALA A UNA BIBLIOTECA
+PUT {{host}}/api/biblioteclas/bibliotecas/addsala
+Content-Type: application/json
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MzQ3MjE3Nn0.Hj2gsIrhczza9SwPSnN9SmtqbWA6u1wynV1RzqibAyo
+
+{ 
+    "idBiblioteca": "6476fce5814b40aa20372753",
+    "idSala": "6475bb45ac46703a2a97284b"
+}
+
+###
+
+// ACTUALIZA UNA BIBLIOTECA CON NUEVOS VALORES
+PUT {{host}}/api/biblioteclas/bibliotecas/updatebiblio
+Content-Type: application/json
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MzQ3MjE3Nn0.Hj2gsIrhczza9SwPSnN9SmtqbWA6u1wynV1RzqibAyo
+
+{ 
+    "idBiblioteca": "646f9921e2ba66f9e6e8aaab",
+    "ciudad": "Zamora"
+}
+
+###
+
+//BORRA UNA BIBLIOTECA
+DELETE {{host}}/api/biblioteclas/bibliotecas/delete
+Content-Type: application/json 
+
+{ 
+    "idBiblioteca": "646f9921e2ba66f9e6e8aaac"
+}
+
+###

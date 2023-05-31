@@ -1,0 +1,29 @@
+@hostname = http://localhost
+@port = 3001
+@host = {{hostname}}:{{port}}
+
+###
+
+//CONSIGUE LAS MESAS DE UNA SALA
+GET {{host}}/api/biblioteclas/mesas/6475bb45ac46703a2a97284b
+
+
+###
+
+// CREA MESAS
+
+POST {{host}}/api/biblioteclas/mesas/6475bb45ac46703a2a97284b/mesas
+Content-Type: application/json
+
+{
+  "numero": 3,
+  "reservada" : true,
+  "posicion": ["x:10, y:20"]
+}
+
+###
+
+// RESERVA UNA MESA
+PUT {{host}}/api/biblioteclas/mesas/646f9921e2ba66f9e6e8aaab/6475bb45ac46703a2a97284b/6475e93030f85ff2c58cf281/64760a8f9ba24a49ee0edb10
+
+###

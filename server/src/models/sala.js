@@ -4,7 +4,7 @@ const salaSchema = new mongoose.Schema(
 {
     nombre: {type: String, required: true},
     tipo: {type: String},
-    mesas: {type: Number, required: true}
+    mesas: [{type: mongoose.Schema.Types.ObjectId, ref: "Mesa"}]
 }
 )
 

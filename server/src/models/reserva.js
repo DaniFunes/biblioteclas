@@ -13,6 +13,11 @@ const reservaSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  mesa: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Mesa",
+    required: true,
+  }
 });
 
 const Reserva = mongoose.model("Reserva", reservaSchema);
