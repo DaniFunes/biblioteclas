@@ -2,6 +2,7 @@ require("express-async-errors");
 const { json } = require("express");
 const morgan = require("morgan");
 const errors = require("../middlewares/errors");
+const cors = require("cors");
 
 const bibliotecas = require("../routes/bibliotecas.js");
 const users = require("../routes/users");
@@ -12,6 +13,11 @@ const mesas = require("../routes/mesas");
 module.exports = function (app) {
   const apiPath = "/api/biblioteclas";
 
+  app.use(
+    cors({
+      origin: "*"
+    })
+  );
   app.use(morgan("dev"));
   app.use(json());
 

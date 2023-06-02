@@ -22,7 +22,6 @@ router.get("/bibliotecas/search", async (req, res) => {
 
 //CONSIGUE TODAS LAS BIBLIOTECAS
 router.get("/bibliotecas", async (req, res) => {
-  throw "Error";
   const bibliotecas = await Biblioteca.find().exec();
   res.json(bibliotecas);
 });
