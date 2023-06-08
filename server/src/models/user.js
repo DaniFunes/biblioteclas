@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   reservas: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reserva" }],
-  isAdmin: { type: Boolean, required: true },
+  isAdmin: { type: Boolean},
   nombre: { type: String },
   apellidos: { type: String },
 });

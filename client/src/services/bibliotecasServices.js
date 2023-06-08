@@ -21,12 +21,15 @@ function createBiblioteca(payload) {
 }
 
 function updateBiblioteca(id, payload) {
-	return http.put(getEndpoint(id), payload)
+	return http.put(getEndpoint(id) + '/updatebiblio', payload)
 }
 
 function deleteBiblioteca(id) {
-	return http.delete(getEndpoint(id))
+	return http.delete(getEndpoint() + '/delete', payload)
 }
+
+
+
 
 const todosService = {
 	getAllBibliotecas,

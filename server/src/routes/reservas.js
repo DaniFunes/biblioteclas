@@ -5,8 +5,11 @@ const mongoose = require("mongoose");
 const Reserva = require("../models/reserva");
 const User = require("../models/user");
 
+const isAuth = require("../middlewares/isAuth");
+const isAdmin = require("../middlewares/isAdmin");
 
-router.get("/user/:idUser", async (req, res) => {
+
+router.get("/user/:idUser", isAuth, async (req, res) => {
   const idUser = req.params.idUser
   const reservas = await Reserva.find({ usuario: idUser})
   .populate({path: "sala"})
@@ -16,7 +19,7 @@ router.get("/user/:idUser", async (req, res) => {
   res.json(reservas);
 });
 
-router.delete("reserva/:idReserva" , async (req, res) => {
+router.delete("reserva/:idReserva", isAuth, async (req, res) => {
     const reserva = req.body.params;
     const deletedReserva = await Reserva.findByIdAndRemove(reserva)
     res.json(deletedReserva)
